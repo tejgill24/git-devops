@@ -1,0 +1,10 @@
+diff a/src/main/java/home/local/devops/web/WelcomeController.java b/src/main/java/home/local/devops/web/WelcomeController.java	(rejected hunks)
+@@ -7,7 +7,7 @@
+ @Controller
+ public class WelcomeController {
+ 
+-	@RequestMapping("/")
++	@RequestMapping("/devops/")
+ 	public String welcome(Model model) {
+ 		model.addAttribute("course", "Devops");
+ 		return "index";
