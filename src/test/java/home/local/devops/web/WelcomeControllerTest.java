@@ -32,7 +32,7 @@ class WelcomeControllerTest {
 
 	@Test
 	void testWelcome() throws Exception {
-		mockMvc.perform(get("/")).andExpect(status().isOk())
+		mockMvc.perform(get("/devops/")).andExpect(status().isOk())
 		.andExpect(model().attribute("course", containsString("Devops")));
 
 	}
