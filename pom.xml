@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>home.local</groupId>
 	<artifactId>devops</artifactId>
-	<version>0.1.2-SNAPSHOT</version>
+	<version>0.1.2</version>
 	<packaging>war</packaging>
 	<name>devops</name>
 	<description>Demo project for Spring Boot</description>
@@ -34,7 +34,7 @@
 		<connection>scm:git:git@github.com:tejgill24/git-devops.git</connection>
 		<developerConnection>scm:git:git@github.com:tejgill24/git-devops.git</developerConnection>
 		<url>git@github.com:tejgill24/git-devops.git</url>
-		<tag>HEAD</tag>
+		<tag>v0.1.2</tag>
 	</scm>
 
 	<dependencies>
