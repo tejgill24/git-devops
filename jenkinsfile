@@ -2,8 +2,6 @@ node {
    def mvnHome
    def tcuser = "jenkins"
    def tcpass = "jenkins"
-   def tomcatcred = credentials('tomcat1')
-   echo "${tomcatcred}"
    
    stage('Prepare') {
       git url: 'git@github.com:tejgill24/git-devops.git', branch: 'develop'
