@@ -1,5 +1,19 @@
 node {
+def jenkinsCredentials = com.cloudbees.plugins.credentials.CredentialsProvider.lookupCredentials(
+        com.cloudbees.plugins.credentials.Credentials.class,
+        Jenkins.instance,
+        null,
+        null
+);
    def mvnHome
+   def tcuser
+   def tcpass
+for (creds in jenkinsCredentials) {
+  if(creds.id == "tomcat1"){
+    tcuser = (creds.username)
+    tcpass = (creds.password)
+    }
+}
    stage('Prepare') {
       git url: 'git@github.com:tejgill24/git-devops.git', branch: 'develop'
       mvnHome = tool 'maven'
@@ -31,9 +45,9 @@ node {
    }
    stage('Deploy') {
        if (isUnix()) {
-         sh 'curl -u jenkins:jenkins -T target/**.war "http://localhost:8080/manager/text/deploy?path=/devops&update=true"'
+         sh 'curl -u ${tcuser}:${tcpass} -T target/**.war "http://localhost:8080/manager/text/deploy?path=/devops&update=true"'
       } else {
-         bat 'curl -u jenkins:jenkins -F filedata=target/**.war "http://localhost:8080/manager/text/deploy?path=/devops&update=true"'
+         bat 'curl -u ${tcuser}:${tcpass} -F filedata=target/**.war "http://localhost:8080/manager/text/deploy?path=/devops&update=true"'
       }
        
    }
