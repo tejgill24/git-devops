@@ -1,12 +1,8 @@
 node {
-
    def mvnHome
    def tcuser = "jenkins"
    def tcpass = "jenkins"
-
-    
    
-}
    stage('Prepare') {
       git url: 'git@github.com:tejgill24/git-devops.git', branch: 'develop'
       mvnHome = tool 'maven'
