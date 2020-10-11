@@ -2,9 +2,11 @@ node {
    def mvnHome
    def tcuser = "jenkins"
    def tcpass = "jenkins"
+   def artifactVersion
+   def tagVersion
+   def retrieveArtifact
    
-   stage('Prepare') {
-      git url: 'git@github.com:tejgill24/git-devops.git', branch: 'develop'
+   stage('Prepare') {      
       mvnHome = tool 'maven'
    }
    stage('Build') {
